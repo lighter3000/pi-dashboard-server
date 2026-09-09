@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="pi-dashboard-viewer.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="nav-loader.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+    </head>
+    <body>
+        <div id="navigation-placeholder"></div>
+
+        <div id="dashboard">
+
+        <div class="metric-card">
+            <p id="cpu-load">CPU Usage: 0%</p>
+            <div class="chart-box">
+                <canvas id="cpu-usage-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <p id="memory-usage">Memory Usage: 0%</p>
+            <div class="chart-box">
+                <canvas id="memory-usage-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="memory-details">
+                <p id="memory-free">Free: XGB</p>
+                <p id="memory-available">Available: XGB</p>
+                <p id="memory-total">Total: XGB</p>
+            </div>
+            <div class="chart-box">
+                <canvas id="multi-memory-usage-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <div class="memory-details">
+                <p id="disk-usage">Disk Usage: 0%</p>
+                <p id="space-free">Free: XGB</p>
+                <p id="space-total">Total: XGB</p>
+            </div>
+            <div class="chart-box">
+                <canvas id="storage-pie-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="metric-card">
+            <p id="cpu-uptime">CPU Uptime: 0s</p>
+        </div>
+
+        </div>
+
+        </div>
+
+        
+    </body>
+</html>

@@ -1,0 +1,316 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500);
+ @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css);
+ @-moz-keyframes spin {
+	 from {
+		 -moz-transform: rotate(0deg);
+	}
+	 to {
+		 -moz-transform: rotate(360deg);
+	}
+}
+ @-webkit-keyframes spin {
+	 from {
+		 -webkit-transform: rotate(0deg);
+	}
+	 to {
+		 -webkit-transform: rotate(360deg);
+	}
+}
+ @keyframes spin {
+	 from {
+		 transform: rotate(0deg);
+	}
+	 to {
+		 transform: rotate(360deg);
+	}
+}
+ * {
+	 box-sizing: border-box;
+}
+ html {
+	 font-size: 100%;
+}
+ body {
+	 font-family: "Roboto";
+	 font-size: 1em;
+	 color: #444;
+	 font-weight: 300;
+	 text-rendering: optimizeLegibility;
+	 text-rendering: geometricPrecision;
+	 -webkit-font-smoothing: antialiased;
+}
+ body, html, #main, #navigation, #sidebar {
+	 height: 100%;
+}
+ button, input[type=submit] {
+	 -webkit-appearance: none;
+	 border: 0;
+	 font-family: "Roboto";
+	 padding: 12.5px 25px;
+	 width: 100%;
+}
+ #navigation {
+	 position: absolute;
+	 background: #777;
+	 width: 54.545454545455px;
+}
+ #navigation ul li.active {
+	 background: #EEE;
+	 height: 54.545454545455px;
+}
+ #navigation ul li.active a {
+	 color: #666;
+}
+ #navigation ul li.active a:hover {
+	 background: none;
+}
+ #navigation ul li a {
+	 display: block;
+	 height: 50px;
+	 line-height: 50px;
+	 text-align: center;
+	 text-decoration: none;
+	 color: #FFF;
+	 transition: 300ms all;
+}
+ #navigation ul li a:hover {
+	 background: #cfcfcf;
+	 color: #444;
+}
+ #navigation ul li a:before {
+	 font-family: "FontAwesome";
+	 font-size: 1.4em;
+}
+ #navigation ul li.dashboard a:before {
+	 content: '\f0e4';
+}
+ #navigation ul li.users a:before {
+	 content: '\f0c0';
+}
+ #navigation ul li.statistics a:before {
+	 content: '\f080';
+}
+ #navigation ul li.settings a:before {
+	 content: '\f013';
+}
+ #navigation ul li.article a:before {
+	 content: '\f044';
+}
+ #navigation ul li a span {
+	 display: none;
+}
+ #sidebar {
+	 background: #EEE;
+	 width: 300px;
+	 position: absolute;
+	 left: 54.545454545455px;
+	 padding: 0 25px;
+	 top: 0;
+}
+ #sidebar section {
+	 background: #f6f6f6;
+	 margin-bottom: 25px;
+	 padding: 25px;
+}
+ #sidebar section.list {
+	 padding: 0;
+}
+ #sidebar section.list li {
+	 padding: 20px 25px;
+	 background: #FAFAFA;
+}
+ #sidebar section.list li:nth-child(even) {
+	 background: #FFF;
+}
+ #sidebar section h4 {
+	 text-transform: uppercase;
+	 font-weight: bold;
+}
+ #content {
+	 margin-left: 350px;
+	 padding: 0 25px;
+	 position: relative;
+	 min-height: 100%;
+}
+ .view .grid, .view .list {
+	 font-family: FontAwesome;
+}
+ .view .grid:before {
+	 content: '\f0c9';
+}
+ .view .list:before {
+	 content: '\f00a';
+}
+ .checkbox input, .radio input {
+	 display: none;
+}
+ .checkbox label:before, .radio label:before {
+	 width: 10px;
+	 height: 10px;
+	 background: #ccc;
+	 content: "";
+	 display: inline-block;
+	 margin-right: 0.5em;
+	 transition: 300ms all;
+}
+ .checkbox label, .radio label {
+	 color: #999;
+	 -webkit-user-select: none;
+	 cursor: pointer;
+}
+ .checkbox input[type=checkbox]:checked + label:before, .checkbox input[type=radio]:checked + label:before, .radio input[type=checkbox]:checked + label:before, .radio input[type=radio]:checked + label:before {
+	 background: #777;
+}
+ .checkbox input[type=checkbox]:checked + label, .checkbox input[type=radio]:checked + label, .radio input[type=checkbox]:checked + label, .radio input[type=radio]:checked + label {
+	 color: #333;
+}
+ #framer {
+	 position: absolute;
+	 background: #FAFAFA;
+	 top: 50px;
+	 bottom: 20px;
+	 left: 20px;
+	 right: 20px;
+}
+ #framer:after {
+	 content: 'PDF Viewer';
+	 color: #333;
+}
+ .hide {
+	 display: none;
+}
+ .sbox {
+	 position: relative;
+}
+ .sbox .current {
+	 padding: 1em;
+	 border: 1px solid #EEE;
+	 position: relative;
+	 cursor: pointer;
+	 display: block;
+	 text-decoration: none;
+	 color: #444;
+}
+ .sbox .current:before {
+	 font-family: "FontAwesome";
+	 content: '\F078';
+	 position: absolute;
+	 right: 1em;
+}
+ .sbox ul {
+	 list-style: none;
+	 padding: 0;
+	 margin: 0;
+	 display: none;
+	 position: absolute;
+	 left: 0;
+	 right: 0;
+	 min-height: 0;
+	 overflow: hidden;
+	 -webkit-transition: 300ms all;
+	 background: #eee;
+	 overflow-y: hidden;
+}
+ .sbox ul li {
+	 margin: 0;
+}
+ .sbox ul li a {
+	 color: #444;
+	 padding: 1em;
+	 background: #FAFAFA;
+	 display: block;
+	 text-decoration: none;
+	 transition: 300ms all;
+}
+ .sbox ul li a:hover {
+	 background: #EEE;
+}
+ .sbox.open .current {
+	 border-left: 1px solid #bbb;
+	 border-top: 1px solid #bbb;
+	 border-right: 1px solid #bbb;
+}
+ .sbox.open .current:before {
+	 content: '\F077';
+}
+ .sbox.open ul {
+	 display: block;
+	 z-index: 100;
+	 border-left: 1px solid #bbb;
+	 border-bottom: 1px solid #bbb;
+	 border-right: 1px solid #bbb;
+	 max-height: 500px;
+}
+ #account {
+	 background: #FAFAFA;
+	 position: absolute;
+	 bottom: 0;
+	 padding: 25px;
+	 left: 0;
+	 right: 0;
+}
+ .loader:before {
+	 font-family: "FontAwesome";
+	 content: '\f01e';
+	 -webkit-animation-name: spin;
+	 -webkit-animation-duration: 800ms;
+	 -webkit-animation-iteration-count: infinite;
+	 -webkit-animation-timing-function: linear;
+	 margin-right: 0.5em;
+}
+ .row {
+	 margin-bottom: 25px;
+}
+ .row:after {
+	 clear: both;
+	 content: '.';
+	 width: 100%;
+	 visibility: hidden;
+	 height: 0;
+	 line-height: 0;
+	 display: table;
+}
+ .row .columns {
+	 background: #FAFAFA;
+	 padding: 25px;
+}
+ .row:last-child {
+	 margin-bottom: 0;
+}
+ .row .lg-4.columns {
+	 float: left;
+	 width: 32%;
+	 margin: 0 1%;
+}
+ .row .lg-6.columns {
+	 float: left;
+	 width: 49%;
+	 margin: 0 1%;
+}
+ .row .lg-3.columns {
+	 float: left;
+	 width: 23.5%;
+	 margin: 0 1%;
+}
+ .row .columns:first-child {
+	 margin-left: 0;
+}
+ .row .columns:last-child {
+	 margin-right: 0;
+}
+ .component {
+	 background: #FAFAFA;
+}
+ .component header {
+	 position: relative;
+	 padding: 25px;
+}
+ .line {
+	 position: absolute;
+	 background: #EEE;
+	 height: 5px;
+	 left: 0;
+	 right: 0;
+	 top: 50%;
+}
+ 

@@ -2,14 +2,22 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <script src="index-updater.js" defer></script>
         <script src="nav-loader.js" defer></script>
+        <script src="content-loader.js" defer></script>
         <script src="pi-dashboard-viewer.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
     </head>
     <body>
-        <div id="navigation-placeholder"></div>
+        <div id="header">
+            <p id="pi-dashboard">PI Dashboard</p>
+            <p id="current-time">Current Time: 00:00:00</p>
+        </div>
+        <div id="layout">
+            <div id="navigation-placeholder"></div>
         
-        <div id="content-placeholder"></div>
+            <div id="content-placeholder"></div>
+        </div>
         
         
 

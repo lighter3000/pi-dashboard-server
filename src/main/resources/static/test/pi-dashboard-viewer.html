@@ -2,19 +2,70 @@
 <html>
     <head>
         <script src="pi-dashboard-viewer.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="nav-loader.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
     </head>
     <body>
-        <div id="pi-dashboard-viewer">
-            <p id="cpu-load">CPU Usage: 0%</p>
-            <p id="memory-usage">Memory Usage: 0%</p>
-            <p id="memory-free">Free Memory: XGB</p>
-            <p id="memory-available">Available Memory: XGB</p>
-            <p id="memory-total">Total Memory: XGB</p>
-            <p id="disk-usage">Disk Usage: 0%</p>
-            <p id="space-free">Free Disk Space: XGB</p>
-            <p id="space-total">Total Disk Space: XGB</p>
+        
+        <div id="header">
+            <p id="pi-dashboard">PI Dashboard</p>
+            <p id="current-time">Current Time: 00:00:00</p>
         </div>
-        <a href="./index.html">Back to Dashboard</a>
+
+        <div id="layout">
+
+            <div id="navigation-placeholder"></div>
+
+            <div id="main">
+
+                <div id="dashboard"><!-- Body of Dashboard-->
+                
+
+                    <div class="metric-card">
+                        <p id="cpu-load">CPU Usage: 0%</p>
+                        <div class="chart-box">
+                            <canvas id="cpu-usage-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <p id="memory-usage">Memory Usage: 0%</p>
+                        <div class="chart-box">
+                            <canvas id="memory-usage-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="memory-details">
+                            <p id="memory-free">Free: XGB</p>
+                            <p id="memory-available">Available: XGB</p>
+                            <p id="memory-total">Total: XGB</p>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="multi-memory-usage-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="memory-details">
+                            <p id="disk-usage">Disk Usage: 0%</p>
+                            <p id="space-free">Free: XGB</p>
+                            <p id="space-total">Total: XGB</p>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="storage-pie-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <p id="cpu-uptime">CPU Uptime: 0s</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         
     </body>
 </html>

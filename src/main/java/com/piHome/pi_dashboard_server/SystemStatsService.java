@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -47,6 +47,8 @@ public class SystemStatsService {
         return Double.parseDouble(content.split(" ")[0]);
     }
 
+    
+
 
 
     public Map<String, Object> getStats() throws IOException{
@@ -57,4 +59,6 @@ public class SystemStatsService {
         stats.put("cpuUptime", getUptime());
         return stats;
     }
+
+
 }

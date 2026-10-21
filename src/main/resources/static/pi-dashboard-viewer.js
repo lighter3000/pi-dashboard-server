@@ -1,14 +1,39 @@
+let cpuLoadElement;
+let memoryUsageElement;
+let freeMemoryElement;
+let availableMemoryElement;
+let totalMemoryElement;
+let diskUsageElement;
+let freeSpaceElement;
+let totalSpaceElement;
+let cpuUptimeElement;
+let currentTimeElement;
 
-const cpuLoadElement = document.getElementById("cpu-load");
-const memoryUsageElement = document.getElementById("memory-usage");
-const freeMemoryElement = document.getElementById("memory-free");
-const availableMemoryElement = document.getElementById("memory-available");
-const totalMemoryElement = document.getElementById("memory-total");
-const diskUsageElement = document.getElementById("disk-usage");
-const freeSpaceElement = document.getElementById("space-free");
-const totalSpaceElement = document.getElementById("space-total");
-const cpuUptimeElement = document.getElementById("cpu-uptime");
+let updateInterval = null;
 
+function initDashboard() {
+    clearInterval(updateInterval);
+
+    Object.values(charts).forEach(chart => chart.destroy());
+    charts = {};
+    histories = {};
+    pieCharts = null;
+
+    cpuLoadElement = document.getElementById("cpu-load");
+    memoryUsageElement = document.getElementById("memory-usage");
+    freeMemoryElement = document.getElementById("memory-free");
+    availableMemoryElement = document.getElementById("memory-available");
+    totalMemoryElement = document.getElementById("memory-total");
+    diskUsageElement = document.getElementById("disk-usage");
+    freeSpaceElement = document.getElementById("space-free");
+    totalSpaceElement = document.getElementById("space-total");
+    cpuUptimeElement = document.getElementById("cpu-uptime");
+    currentTimeElement = document.getElementById("current-time");
+
+    updateDashboard();
+    updateInterval = setInterval(updateDashboard, 1000);
+
+}
 
 
 let charts = {};
@@ -16,9 +41,6 @@ let histories = {};
 
 let pieCharts = null;
 
-updateDashboard();
-
-setInterval(updateDashboard, 1000);
 
 function updateDashboard() {
     fetch('/system/stats')
@@ -38,6 +60,9 @@ function updateDashboard() {
 
             const cpuUptime = formatTime(data.cpuUptime);
 
+            const currentDate = new Date();
+            const currentTime = currentDate.getDate() + "." + (currentDate.getMonth()+1) + "." + currentDate.getFullYear() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+
             cpuLoadElement.textContent = `CPU Usage: ${cpuLoad}%`;
             memoryUsageElement.textContent = `Memory Usage: ${memoryUsage}%`;
             freeMemoryElement.textContent = `Free Memory: ${freeMemory} GB`;
@@ -47,7 +72,8 @@ function updateDashboard() {
             freeSpaceElement.textContent = `Free Disk Space: ${freeSpace} GB`;
             totalSpaceElement.textContent = `Total Disk Space: ${totalSpace} GB`;
             cpuUptimeElement.textContent = `CPU Uptime: ${cpuUptime}`;
-            
+            currentTimeElement.textContent = currentTime;
+
             // Create chart for CPU and RAM usage history
             if (!charts["cpu-load"]) {
                 initChart("cpu-load", "cpu-usage-chart", "rgba(75, 192, 192, 0.2)", "CPU Usage");

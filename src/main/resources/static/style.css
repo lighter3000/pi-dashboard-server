@@ -16,9 +16,34 @@
 body {
   font-family: sans-serif;
   display: flex;
+  flex-direction: column;
   background: var(--bg-page);
   min-height: 100vh;
-  align-items: stretch;
+}
+
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+#main{
+  flex: 1;
+  min-width: 0;
+}
+
+#layout {
+  display: flex;
+  flex: 1;
+}
+
+#content-placeholder {
+  flex: 1;
+  min-width: 0;
 }
 
 /* --- Navigation --- */
@@ -27,7 +52,10 @@ body {
   background: var(--bg-nav);
   width: 200px;
   flex-shrink: 0;
-  min-height: 100vh;
+}
+
+#navigation-placeholder {
+  display: flex;
 }
 
 #navigation ul {
@@ -44,6 +72,70 @@ body {
 #navigation ul li a:hover {
   background: #555;
 }
+
+
+/* --- Home Page --- */
+.page-home {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-home .hero {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.page-home .hero h1 {
+  font-size: 2em;
+  color: var(--text-primary);
+}
+
+.page-home .hero p {
+  color: #555;
+  max-width: 60ch;
+}
+
+.page-home .hero-button {
+  margin-top: 8px;
+  padding: 10px 20px;
+  background: var(--bg-nav);
+  color: #fff;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.page-home .hero-button:hover {
+  background: #555;
+}
+
+.page-home .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.page-home .feature-grid h2 {
+  font-size: 1.1em;
+  color: var(--text-primary);
+}
+
+.page-home .feature-grid p {
+  color: #555;
+}
+
+.page-home .coming-soon {
+  color: #777;
+  font-size: 0.95em;
+}
+
 
 /* --- Dashboard Grid --- */
 
@@ -87,3 +179,39 @@ body {
   position: relative;
   height: 220px;
 }
+
+
+
+
+/* --- About --- */
+
+.page-about {
+  padding: 24px;
+}
+
+.page-about .subtitle {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.page-about .about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.page-about h2 {
+  font-size: 1.1em;
+  color: var(--text-primary);
+}
+
+.page-about ul {
+  padding-left: 1.2em;   /* your * reset removes the default list indent */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #444;
+}
+
+
